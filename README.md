@@ -4,7 +4,7 @@ A real-time notification system using **Node.js**, **BullMQ**, **Redis**, **Sock
 
 This project shows how to queue and deliver user notifications (email + browser) asynchronously using modern backend architecture.
 
-![screenshot](https://raw.githubusercontent.com/your-username/minimeta-notify/main/docs/screenshot.png)
+![screenshot]![Uploading Screenshot 2025-07-18 at 2.02.53 AM.png…]()
 
 [Link} (https://minimeta-notify.onrender.com/)
 
