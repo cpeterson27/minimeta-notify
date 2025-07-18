@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MiniMeta Notifications</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #f4f6f8;
+        padding: 2rem;
+        max-width: 600px;
+        margin: auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        background: #fff;
+        margin: 0.5rem 0;
+        padding: 1rem;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .timestamp {
+        font-size: 0.8rem;
+        color: #999;
+        margin-top: 0.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔔 Real-Time Notifications</h1>
+    <ul id="notifications"></ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const list = document.getElementById("notifications");
+
+      socket.on("notification", (data) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+        <strong>User ${data.userId}</strong>: ${data.message}
+        <div class="timestamp">${new Date().toLocaleTimeString()}</div>
+      `;
+        list.prepend(li);
+      });
+    </script>
+  </body>
+</html>
